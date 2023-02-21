@@ -1,0 +1,56 @@
+// const rocket = {
+//   name: "Falcon 9", //
+//   variant: "Block 5",
+//   thrust: "7,607 kN",
+// };
+{
+  type Rocket = { [property: string]: string };
+
+  const rocket: Rocket = {
+    name: "Falcon 9",
+    variant: "vl.0",
+    thrust: "4,940 kN",
+  }; // 정상
+
+  /**
+   * 단점 한가득..!
+   */
+  //특정 키가 필요하지 않습니다. {}도 유효한 Rocket 타입입니다.
+  const rocketEmpty: Rocket = {};
+
+  type Vec3D = Record<"x" | "y" | "z", number>;
+  // const vec2d: Vec3D = {
+  //   x: 1,
+  // };
+
+  interface Rocket2 {
+    name: string;
+    variant: string;
+    thrust_kN: number;
+  }
+  const rocket2: Rocket2 = {
+    name: "hello",
+    thrust_kN: 1,
+    variant: "muyaho",
+  };
+  function parseCSV(input: string): { [columnName: string]: string }[] {
+    const lines = input.split("\n");
+    const [header, ...rows] = lines;
+    return rows.map((rowStr) => {
+      const row: { [columnName: string]: string } = {};
+      rowStr.split(",").forEach((cell, i) => {
+        row[header[i]] = cell;
+      });
+      return row;
+    });
+  }
+
+  interface ProductRow {
+    productId: string;
+    name: string;
+    price: string;
+  }
+  const csvData = "123";
+  const products = parseCSV(csvData) as unknown as ProductRow[];
+  type ABC = { [k in "a" | "b" | "c"]: k extends "b" ? string : number };
+}
