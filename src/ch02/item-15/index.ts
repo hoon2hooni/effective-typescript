@@ -1,8 +1,3 @@
-// const rocket = {
-//   name: "Falcon 9", //
-//   variant: "Block 5",
-//   thrust: "7,607 kN",
-// };
 {
   type Rocket = { [property: string]: string };
 
@@ -53,4 +48,24 @@
   const csvData = "123";
   const products = parseCSV(csvData) as unknown as ProductRow[];
   type ABC = { [k in "a" | "b" | "c"]: k extends "b" ? string : number };
+
+  declare let csvData: string;
+  const products = parseCSV(csvData) as unknown as ProductRow[];
+
+  function safeParseCSV(
+    input: string
+  ): { [columnName: string]: string | undefined }[] {
+    return parseCSV(input);
+  }
+
+  const rows = parseCSV(csvData);
+  const prices: { [produt: string]: number } = {};
+  for (const row of rows) {
+    prices[row.productId] = Number(row.price);
+  }
+  const safeRows = safeParseCSV(csvData);
+  for (const row of safeRows) {
+    prices[row.productId] = Number(row.price);
+    // ~~~~~~~~~~~~~ Type 'undefined' cannot be used as an index type
+  }
 }
