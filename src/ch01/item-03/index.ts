@@ -121,14 +121,14 @@ async function setLight() {
   //                      ^?
 }
 
-function add(a: number, b: number): number;
-function add(a: string, b: string): string;
+function myAdd(a: number, b: number): number;
+function myAdd(a: string, b: string): string;
 
-function add(a, b) {
+function myAdd(a, b) {
   return a + b;
 }
 
-add(1,2)
+myAdd(1, 2);
 //^?
-add("Hello", "World")
+myAdd("Hello", "World");
 //^?
