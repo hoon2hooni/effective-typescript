@@ -43,6 +43,6 @@ async function fetchWithTimeout2(url: string, ms: number) {
 
 async 함수에서 프로미스를 반환하면 또 다른 프로미스로 래핑되지 않습니다! 
 반환 타입은 Promise<Promise<T>>가 아닌 Promise<T>가 됩니다. 
-타입스크립트를 사용하면 타입 정보가 명확히 드러나기 때문에 비동기 코드의 개념을 잡는데 도움이 됩니다.
+타입스크립트를 사용하면 타입 정보가 명확히 드러나기 때문에 비동기 코드의 개념을 잡는데 **도움이** 됩니다.
 
 
