@@ -6,5 +6,5 @@
 2. tuple
 3. object
 4. callback
-   
+
    예시들 index.ts에
