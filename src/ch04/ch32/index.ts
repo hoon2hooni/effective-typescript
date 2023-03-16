@@ -93,4 +93,16 @@
       }
     }
   }
+
+  {
+    type Param1 = string | number;
+    type Param2 = string;
+
+    type Func1 = (p: string | number) => void;
+    type Func2 = (p: string) => void;
+
+    let a: Func1 = (p) => {};
+    let b: Func2 = (p) => {};
+    b = a;
+  }
 }
