@@ -1,0 +1,16 @@
+query {
+  repository(owner: "Microsoft", name: "TypeScript") {
+    createdAt
+    description
+  }
+}
+
+query getLicense($owner: String!, $name: String!) {
+  repository(owner: $owner, name: $name) {
+    description
+    licenseInfo {
+      spdxId
+      name
+    }
+  }
+}
